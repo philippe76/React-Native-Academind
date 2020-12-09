@@ -27,11 +27,15 @@ export default function App() {
         />
         <Button title="ADD" color="#85AFE5" onPress={addHandler}/>
       </View>
-      <View>
-        {tasks.map((item, index) => 
-          <View style={styles.listItem}>
-            <Text key={index + Math.round(Math.random()*10)}>{item}</Text>
+      <View style={{ marginTop: 10 }}>
+        {tasks.map((item, index) => {
+        
+          return (
+          <View key={index + item} style={styles.listItem}>
+            <Text>{item}</Text>
           </View>
+          )
+        } 
         )}
       </View>
     </View>
