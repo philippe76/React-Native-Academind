@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
-import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
-import uuid from 'react-native-uuid'
+import { StyleSheet, Text, View, TextInput, Button, ScrollView } from 'react-native';
 
 export default function App() {
 
@@ -27,17 +26,13 @@ export default function App() {
         />
         <Button title="ADD" color="#85AFE5" onPress={addHandler}/>
       </View>
-      <View style={{ marginTop: 10 }}>
-        {tasks.map((item, index) => {
-        
-          return (
+      <ScrollView style={{ marginTop: 10 }}>
+        {tasks.map((item, index) => 
           <View key={index + item} style={styles.listItem}>
             <Text>{item}</Text>
           </View>
-          )
-        } 
         )}
-      </View>
+      </ScrollView>
     </View>
   )
 }
