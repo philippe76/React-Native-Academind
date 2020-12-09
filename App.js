@@ -5,7 +5,7 @@ import uuid from 'react-native-uuid'
 export default function App() {
 
   const [inputText, setInputText] = useState('');
-  const [tasks, setTasks] = useState([])
+  const [tasks, setTasks] = useState([]);
 
   const inputHandler = (text) => {
     setInputText(text)
@@ -25,10 +25,14 @@ export default function App() {
           onChangeText={inputHandler}
           value={inputText}
         />
-        <Button title="ADD" color="#b0c4de" onPress={addHandler}/>
+        <Button title="ADD" color="#85AFE5" onPress={addHandler}/>
       </View>
       <View>
-        {tasks.map(item => <Text key={uuid.v4()}>{item}</Text>)}
+        {tasks.map((item, index) => 
+          <View style={styles.listItem}>
+            <Text key={index + Math.round(Math.random()*10)}>{item}</Text>
+          </View>
+        )}
       </View>
     </View>
   )
@@ -46,6 +50,15 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 8,
     width: '80%'    
+  },
+  listItem: {
+    padding: 10,
+    marginVertical: 10,
+    backgroundColor: '#ffe4e1',
+    borderColor: "#928C8C",
+    borderColor: "darkgrey",
+    borderWidth: 2,
+    borderRadius: 5,
   }
 });
 
