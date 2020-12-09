@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import { StyleSheet, Text, View, TextInput, Button, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button, FlatList } from 'react-native';
+import uuid from 'react-native-uuid'
 
 export default function App() {
 
@@ -11,7 +12,7 @@ export default function App() {
   }
 
   const addHandler = () => {
-    setTasks(prevTasks => [...prevTasks, inputText]);
+    setTasks(prevTasks => [...prevTasks, { id: uuid.v4(), value: inputText }]);
     setInputText('')
   }
 
@@ -26,13 +27,16 @@ export default function App() {
         />
         <Button title="ADD" color="#85AFE5" onPress={addHandler}/>
       </View>
-      <ScrollView style={{ marginTop: 10 }}>
-        {tasks.map((item, index) => 
-          <View key={index + item} style={styles.listItem}>
-            <Text>{item}</Text>
+      <FlatList 
+        data={tasks} 
+        keyExtractor={ (item, index)=> item.id }
+        renderItem={ itemData => 
+          <View style={styles.listItem}>
+            <Text>{itemData.item.value}</Text>
           </View>
-        )}
-      </ScrollView>
+        }  
+        style={{ marginTop: 10 }}
+      />
     </View>
   )
 }
