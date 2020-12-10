@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, TextInput, Button, StyleSheet } from 'react-native';
+import {View, TextInput, Button, Modal, StyleSheet } from 'react-native';
 
 
 
@@ -13,38 +13,42 @@ const Input = props => {
 
 
     return (
-        <View style={styles.container}>
-            <TextInput 
-            placeholder="Things To Do ..." 
-            style={styles.input} 
-            onChangeText={inputHandler}
-            value={inputText}
-            />
-            <Button 
-                title="ADD" 
-                color="#85AFE5" 
-                onPress={()=> {
-                props.addTask(inputText);
-                setInputText('')
-                }
-                }/>
-        </View>
+        <Modal visible={props.isOpen} animationType='slide'>
+            <View style={styles.container}>
+                <TextInput 
+                    placeholder="Things To Do ..." 
+                    style={styles.input} 
+                    onChangeText={inputHandler}
+                    value={inputText}
+                />
+                <Button 
+                    title="ADD" 
+                    color="#85AFE5" 
+                    onPress={()=> {
+                    props.addTask(inputText);
+                    setInputText('');
+                    }}
+                />
+            </View>
+        </Modal>
     )
 }
 
 
 const styles = StyleSheet.create({
     container: {
+        flex: 1,
         flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center'
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     input: {
         borderColor: 'darkgrey',
         borderWidth: 2,
         borderRadius: 5,
-        padding: 8,
-        width: '80%'    
+        padding: 6,
+        width:'70%',
+        marginRight: 10
     }  
 })
 

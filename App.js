@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { StyleSheet, View, FlatList } from 'react-native';
+import { StyleSheet, View, FlatList, Button } from 'react-native';
 import uuid from 'react-native-uuid';
 import ListItem from './components/ListItem';
 import Input from './components/Input';
@@ -7,9 +7,11 @@ import Input from './components/Input';
 export default function App() {
 
   const [tasks, setTasks] = useState([]);
+  const [openModal, setOpenModal] = useState(false)
 
   const addHandler = (taskName) => {
     setTasks(prevTasks => [...prevTasks, { id: uuid.v4(), value: taskName }]);
+    setOpenModal(false)
   }
 
   const deleteHandler = (taskId) => {
@@ -18,7 +20,8 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Input addTask={addHandler}/>
+      <Button title='Add Task' onPress={()=>setOpenModal(true)}/>
+      <Input addTask={addHandler} isOpen={openModal}/>
       <FlatList 
         data={tasks} 
         keyExtractor={(item, index)=> item.id}
