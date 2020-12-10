@@ -2,7 +2,7 @@
 
 <br/>
 
-> Using new React-Native components like ScrollView or custom components
+> Using new React-Native components like ScrollView, "Touchable" components or custom components
 >
 > Learning deeper FlatList concept and use
 >

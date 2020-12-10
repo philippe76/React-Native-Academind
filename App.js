@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { StyleSheet, Text, View, TextInput, Button, FlatList } from 'react-native';
+import { StyleSheet, View, FlatList } from 'react-native';
 import uuid from 'react-native-uuid';
 import ListItem from './components/ListItem';
 import Input from './components/Input';
@@ -12,6 +12,9 @@ export default function App() {
     setTasks(prevTasks => [...prevTasks, { id: uuid.v4(), value: taskName }]);
   }
 
+  const deleteHandler = (taskId) => {
+    setTasks(prevTasks => [...prevTasks.filter(item => item.id !== taskId)])
+  }
 
   return (
     <View style={styles.container}>
@@ -19,7 +22,7 @@ export default function App() {
       <FlatList 
         data={tasks} 
         keyExtractor={(item, index)=> item.id}
-        renderItem={itemData => <ListItem title={itemData.item.value}/>}     
+        renderItem={itemData => <ListItem title={itemData.item.value} deleteTask={()=> deleteHandler(itemData.item.id)} />}     
         style={styles.list}
       />
     </View>
