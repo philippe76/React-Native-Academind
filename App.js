@@ -20,7 +20,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Button title='Add Task' onPress={()=>setOpenModal(true)}/>
+      <Button title='Create Tasks' style={styles.button} onPress={()=>setOpenModal(true)}/>
       <Input addTask={addHandler} isOpen={openModal}/>
       <FlatList 
         data={tasks} 
@@ -34,7 +34,8 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 50
+    padding: 50,
+    marginTop: 150
   },
   list: { 
     marginTop: 10 

@@ -1,4 +1,4 @@
-**Coding a compltete React-Native App through Expo platform**
+**Coding a simple React-Native App through Expo platform**
 
 <br/>
 
