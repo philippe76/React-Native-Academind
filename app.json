@@ -6,9 +6,15 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
+      "resizeMode": "cover",
+      "backgroundColor": "#3c4044",
       "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "ldpi": "./assets/splash.png",
+      "mdpi": "./assets/splash.png",
+      "hdpi": "./assets/splash.png",
+      "xhdpi": "./assets/splash.png",
+      "xxhdpi": "./assets/splash.png",
+      "xxxhdpi": "./assets/splash.png"
     },
     "updates": {
       "fallbackToCacheTimeout": 0

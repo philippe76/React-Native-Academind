@@ -3,8 +3,12 @@ import { StyleSheet, View, FlatList, Button } from 'react-native';
 import uuid from 'react-native-uuid';
 import ListItem from './components/ListItem';
 import Input from './components/Input';
+import * as SplashScreen from 'expo-splash-screen';
 
 export default function App() {
+
+  SplashScreen.preventAutoHideAsync();
+  setTimeout(SplashScreen.hideAsync, 500);
 
   const [tasks, setTasks] = useState([]);
   const [openModal, setOpenModal] = useState(false)
@@ -20,7 +24,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Button title='Create Tasks' style={styles.button} onPress={()=>setOpenModal(true)}/>
+      <Button title='Create Task' onPress={()=>setOpenModal(true)}/>
       <Input addTask={addHandler} isOpen={openModal}/>
       <FlatList 
         data={tasks} 
@@ -34,8 +38,10 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     padding: 50,
-    marginTop: 150
+    paddingTop: 150,
+    backgroundColor: "#3c4044",
   },
   list: { 
     marginTop: 10 

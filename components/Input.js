@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: "#3c4044",
     },
     input: {
         borderColor: 'darkgrey',
@@ -48,7 +49,8 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         padding: 6,
         width:'70%',
-        marginRight: 10
+        marginRight: 10,
+        "backgroundColor": "white",
     }  
 })
 

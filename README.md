@@ -1,8 +1,8 @@
-**Coding a simple React-Native App through Expo platform**
+**Coding a simple React-Native To-Do-List App through Expo platform**
 
 <br/>
 
-> Using new React-Native components like ScrollView, "Touchable" components or custom components
+> Using new React-Native components like ScrollView, Touchable components or custom components
 >
 > Learning deeper FlatList concept and use
 >

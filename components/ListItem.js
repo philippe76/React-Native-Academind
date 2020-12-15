@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     listItem: {
         padding: 10,
         marginVertical: 10,
-        backgroundColor: '#ffe4e1',
+        backgroundColor: 'white',
         borderColor: "#928C8C",
         borderColor: "darkgrey",
         borderWidth: 2,
